@@ -3,15 +3,17 @@ package dev.java10x.CadastroDeNinjas.MIssoes;
 import java.util.List;
 
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tb_missoes")
+
 public class MissoesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,30 +25,5 @@ public class MissoesModel {
 
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninja;
-    
-    public MissoesModel() {
-    }
-
-    public MissoesModel(String nome, String dificuldade) {
-        this.nome = nome;
-        this.dificuldade = dificuldade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDificuldade() {
-        return dificuldade;
-    }
-
-    public void setDificuldade(String dificuldade) {
-        this.dificuldade = dificuldade;
-    }
-
 
 }
