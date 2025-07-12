@@ -10,6 +10,7 @@ public class CadastroDeNinjasApplication {
 
     public static void main(String[] args) {
      
+        //Criação de variavéis de ambiente usando a lib Dotenv
         Dotenv dotenv = Dotenv.load();
         System.setProperty("spring.datasource.url", dotenv.get("DATABASE_URL"));
         System.setProperty("spring.datasource.username", dotenv.get("DATABASE_USERNAME"));
