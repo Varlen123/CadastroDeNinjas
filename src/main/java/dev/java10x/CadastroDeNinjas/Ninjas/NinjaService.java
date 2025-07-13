@@ -1,6 +1,7 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,11 @@ public class NinjaService {
         return ninjaRepository.findAll();
     }
 
-   
+   //Listar ninjas por ID
+
+   public NinjaModel listarNinjasPorId(Long id){
+    Optional <NinjaModel> ninjaPorId = ninjaRepository.findById(id);
+    return ninjaPorId.orElse(null);
+   }
+
 }

@@ -12,11 +12,6 @@ public class NinjaController {
     @Autowired
     private NinjaService ninjaService;
 
-    @GetMapping("/mensagem")
-    public String boasVindas(){
-        return "Essa é minha primeira mensagem";
-    }
-
     //Adicionar ninja(CREATE)
     @PostMapping("/criar")
     public String criarNinja(){
@@ -24,17 +19,16 @@ public class NinjaController {
     }
     //Buscar ninja por id(READ)
 
-      @GetMapping("/listar")
-        public List<NinjaModel> listarNinjas(){
+    @GetMapping("/listar")
+      public List<NinjaModel> listarNinjas(){
         return ninjaService.listarNinjas();
-    }
-    
+      }
 
     //Mostrar todos os ninjas (READ)
 
-     @GetMapping("/todosporId")
-    public String mostrarTodosOsNinjasPorId(){
-        return "id dos ninjas";
+     @GetMapping("/listar/{id}")
+      public NinjaModel listarNinjasPorId(@PathVariable Long id){
+      return ninjaService.listarNinjasPorId(id);
     }
     
     //Alterar dados dos ninjas (UPDATE)
