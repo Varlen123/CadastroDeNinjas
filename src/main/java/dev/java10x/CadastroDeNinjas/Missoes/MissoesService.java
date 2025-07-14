@@ -1,4 +1,4 @@
-package dev.java10x.CadastroDeNinjas.MIssoes;
+package dev.java10x.CadastroDeNinjas.Missoes;
 
 import java.util.List;
 import java.util.Optional;
