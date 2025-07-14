@@ -22,7 +22,7 @@ public class MissoesService {
     }
 
     //Deletar missoes por id
-    public void MissoesModel(Long id){
+    public void deletarMissaoPorId(Long id){
         missoesRepository.deleteById(id);
     }
 
