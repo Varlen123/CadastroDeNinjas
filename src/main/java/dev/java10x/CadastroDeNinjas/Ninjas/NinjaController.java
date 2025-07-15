@@ -1,47 +1,58 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
-
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/ninjas")
 @RestController
+@RequestMapping("/ninjas")
 public class NinjaController {
 
-    @Autowired
     private NinjaService ninjaService;
 
-    //Adicionar ninja(CREATE)
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
+
+    @GetMapping("/boasvindas")
+    public String boasVindas() {
+        return "Essa é minha primeira mensagem nessa rota";
+    }
+
+    // Adicionar ninja (CREATE)
     @PostMapping("/criar")
-    public NinjaModel criaNinja(@RequestBody NinjaModel ninja){
-      return ninjaService.criarNinja(ninja);
-
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja) {
+        return ninjaService.criarNinja(ninja);
     }
-    
-    //Buscar ninja por id(READ)
 
+    // Mostrar todos os ninjas (READ)
     @GetMapping("/listar")
-      public List<NinjaModel> listarNinjas(){
+    public List<NinjaModel> listarNinjas() {
         return ninjaService.listarNinjas();
-      }
-
-    //Mostrar todos os ninjas (READ)
-
-     @GetMapping("/listar/{id}")
-      public NinjaModel listarNinjasPorId(@PathVariable Long id){
-      return ninjaService.listarNinjasPorId(id);
     }
-    
-    //Alterar dados dos ninjas (UPDATE)
+
+    // Mostrar ninja  por id (READ)
+    @GetMapping("/listar/{id}")
+    public NinjaModel listarNinjasPorId(@PathVariable Long id) {
+        return ninjaService.listarNinjasPorId(id);
+    }
+
+    // Alterar dados dos ninjas (UPDATE)
     @PutMapping("/alterar/{id}")
-    public NinjaModel alterarNinjasPorID(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+    public NinjaModel alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado) {
         return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
-    //Deletar ninja (DELETE)
 
-    @DeleteMapping("/deletarId/{id}")
-    public void deletarNinjaPorId(@PathVariable Long id){
+    // Deletar Ninja (DELETE)
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaPorId(@PathVariable Long id) {
         ninjaService.deletarNinjaPorId(id);
     }
+
 }
