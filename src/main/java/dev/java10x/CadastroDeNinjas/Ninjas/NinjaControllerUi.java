@@ -54,4 +54,5 @@ public class NinjaControllerUi {
         return "redirect:/ninjas/ui/listar";
     }
 
+
 }
