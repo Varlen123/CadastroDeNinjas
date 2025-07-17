@@ -92,13 +92,18 @@
         <td th:text="${ninja.email}"></td>
         <td th:text="${ninja.rank}"></td>
         <td>
-            <span th:if="${ninja.missoes}"><span th:text="${ninja.missoes.nome}"></span>, Dificuldade: <span th:text="${ninja.missoes.dificuldade}"></span></span>
-            <span th:if="${ninja.missoes == null}">Sem Missões cadastradas para o ninja</span>
+         <span th:if="${ninja.missoes != null}">
+    <span th:text="${ninja.missoes.nome}"></span>, Dificuldade: <span th:text="${ninja.missoes.dificuldade}"></span>
+</span>
+<span th:if="${ninja.missoes == null}">
+    Sem Missões cadastradas para o ninja
+</span>
+
         </td>
 
         <td>
             <a th:href="@{/ninjas/ui/listar/{id}(id=${ninja.id})}">Ver Detalhes</a>
-            <a th:href="@{/ninjas/ui/#/{id}(id=${ninja.id})}">Alterar</a>
+           <a th:href="@{/ninjas/ui/alterar/{id}(id=${ninja.id})}">Alterar</a>
             <a th:href="@{/ninjas/ui/deletar/{id}(id=${ninja.id})}">Deletar</a>
         </td>
 
