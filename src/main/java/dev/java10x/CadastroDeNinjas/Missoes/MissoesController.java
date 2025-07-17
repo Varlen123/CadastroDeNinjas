@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import dev.java10x.CadastroDeNinjas.Ninjas.NinjaDTO;
 @RequestMapping("/missoes")
 @RestController
 public class MissoesController {

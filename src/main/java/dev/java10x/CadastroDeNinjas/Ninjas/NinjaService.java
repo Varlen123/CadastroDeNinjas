@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class NinjaService {
 
-    private NinjaRepository ninjaRepository;
-    private NinjaMapper ninjaMapper;
+    final private NinjaRepository ninjaRepository;
+    final private NinjaMapper ninjaMapper;
 
     public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
